@@ -1,38 +1,63 @@
 import React, { useState } from "react";
 import "./App.css";
-import ToDoForm from "../src/Components/Form";
+import ToDoForm from "./Components/Form";
+import ToDoList from "./Components/ToDoList";
 
+export interface newTask {
+  task: string;
+  id: number;
+  completed: boolean;
+}
 function App() {
-
-  // Type for array is an array of objects (tasks)
-  const myList: object[] = [];
+  // Type for array is an array of newTasks
+  const myList: newTask[] = [];
 
   const [toDoList, setToDoList] = useState(myList);
 
+  // Checking if a task was added state type
 
-  interface newTask {
-    task: String;
-    id: Number;
-    completed: Boolean;
-  };
+  const initialTask: boolean = false;
 
-  
+  // State handling input change
+  const [addTask, setAddTask] = useState("");
 
-  function addTask(taskName: newTask["task"]) {
+  const [didAddTask, setDidAddTask] = useState(initialTask);
 
+  function addNewTask(taskName: newTask["task"]) {
     const addTask = {
       task: taskName,
       id: Date.now(),
-      completed: false
+      completed: false,
+    };
 
-    }
-    
     setToDoList([...toDoList, addTask]);
   }
 
+  function toggleTask(id: number) {
+    const newList = toDoList.map((item) => {
+      if (item.id === id) {
+        return {
+          ...item,
+          completed: !item.completed,
+        };
+      } else {
+        return item;
+      }
+    });
+
+    setToDoList(newList);
+  }
+
+
   return (
     <div className="App">
-      <ToDoForm toDoList={toDoList} />
+      <ToDoForm
+        addNewTask={addNewTask}
+        addTask={addTask}
+        setAddTask={setAddTask}
+        setDidAddTask={setDidAddTask}
+      />
+      <ToDoList toDoList={toDoList} didAddTask={didAddTask} toggleTask={toggleTask} />
     </div>
   );
 }
