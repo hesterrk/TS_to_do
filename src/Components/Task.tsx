@@ -10,11 +10,11 @@ interface Props {
   item_id: number;
 }
 
-// interface TheseOnes {
-//   item_completed: Boolean
-// }
+type myDiv = {
+  item_completed: Boolean;
+};
 
-const Div = styled.div`
+const Div = styled.div<myDiv>`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,6 +22,7 @@ const Div = styled.div`
   border-radius: 100px 15px 100px 15px/15px 100px 15px 100px;
   width: 50%;
   margin: 0 auto;
+  text-decoration: ${(props) => (props.item_completed ? "line-through" : null)};
 `;
 
 function Task({
@@ -37,7 +38,10 @@ function Task({
     <div>
       {/* Icon renders only if someone has written something where didAddTask state is true */}
       {didAddTask ? (
-        <Div onClick={() => toggleTask(item_id)}>
+        <Div
+          item_completed={item_completed}
+          onClick={() => toggleTask(item_id)}
+        >
           <ProtoDotIo color={"black"} />
           <p style={{ marginLeft: 10 }}>{item_name}</p>
         </Div>
