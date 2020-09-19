@@ -51,8 +51,6 @@ function App() {
   function clearCompleted(e: React.SyntheticEvent) {
     e.preventDefault();
     const clearTask = toDoList.filter((item) => !item.completed);
-    console.log(clearTask, "clearr");
-    console.log(toDoList, "in clear func");
 
     setToDoList(clearTask);
   }
