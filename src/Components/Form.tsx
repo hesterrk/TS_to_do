@@ -23,11 +23,17 @@ const FormDiv = styled.div`
   /* box-shadow: 0 20px 50px rgba(59, 43, 91, 0.7); */
   box-shadow: 5px 5px rgba(230, 230, 250, 0.7),
     10px 10px rgba(240, 240, 260, 0.5);
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 `;
 
 const ContainDiv = styled.div`
   display: flex;
+`;
+
+const H2 = styled.h2`
+  box-shadow: 5px 5px rgba(230, 230, 250, 0.7),
+    10px 10px rgba(240, 240, 260, 0.5);
+  color: white;
 `;
 
 const AddIcon = styled(AddToList)`
@@ -41,9 +47,16 @@ interface Props {
   addTask: string;
   setAddTask: Function;
   setDidAddTask: Function;
+  clearCompleted: Function;
 }
 
-function ToDoForm({ addNewTask, addTask, setAddTask, setDidAddTask }: Props) {
+function ToDoForm({
+  addNewTask,
+  addTask,
+  setAddTask,
+  setDidAddTask,
+  clearCompleted,
+}: Props) {
   // The type of the event object is 'ChangeEvent'
   // Has an inferred 'void' type of return as doesnt return anything
   function onChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -56,7 +69,6 @@ function ToDoForm({ addNewTask, addTask, setAddTask, setDidAddTask }: Props) {
     if (addTask.length > 0) {
       addNewTask(addTask);
       setDidAddTask(true);
-
     }
     setAddTask("");
   };
@@ -64,7 +76,7 @@ function ToDoForm({ addNewTask, addTask, setAddTask, setDidAddTask }: Props) {
   return (
     <Div>
       <FormDiv>
-        <h2> My Tasks </h2>
+        <H2> My Tasks </H2>
 
         <form>
           <ContainDiv>

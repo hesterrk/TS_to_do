@@ -10,6 +10,7 @@ interface Props {
   item_id: number;
 }
 
+// If using props in a SC, have to declare the type of the prop seperately
 type myDiv = {
   item_completed: Boolean;
 };
