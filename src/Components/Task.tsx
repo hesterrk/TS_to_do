@@ -33,7 +33,6 @@ function Task({
   item_id,
   item_completed,
 }: Props) {
-
   return (
     <div>
       {/* Icon renders only if someone has written something where didAddTask state is true */}
