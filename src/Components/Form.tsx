@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { AddToList } from "@styled-icons/entypo/AddToList";
+import { ClearAll } from "@styled-icons/material/ClearAll";
 
 const Div = styled.div`
   height: auto;
@@ -37,6 +38,12 @@ const H2 = styled.h2`
 `;
 
 const AddIcon = styled(AddToList)`
+  color: #b993d6;
+  border-radius: 2px;
+  width: 1.4rem;
+`;
+
+const ClearIcon = styled(ClearAll)`
   color: #b993d6;
   border-radius: 2px;
   width: 1.4rem;
@@ -91,6 +98,9 @@ function ToDoForm({
             <button onClick={onSubmit}>
               <AddIcon />
             </button>
+            <button onClick={(e) => clearCompleted(e)}>
+              <ClearIcon />
+            </button>
           </ContainDiv>
         </form>
       </FormDiv>
@@ -99,3 +109,5 @@ function ToDoForm({
 }
 
 export default ToDoForm;
+
+// @styled-icons/material/ClearAll

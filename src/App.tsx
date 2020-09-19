@@ -48,16 +48,14 @@ function App() {
     setToDoList(newList);
   }
 
-  function clearCompleted(e: React.SyntheticEvent): void {
-    e.preventDefault()
-    const clearTask = myList.filter(item => !item.completed)
+  function clearCompleted(e: React.SyntheticEvent) {
+    e.preventDefault();
+    const clearTask = toDoList.filter((item) => !item.completed);
+    console.log(clearTask, "clearr");
+    console.log(toDoList, "in clear func");
 
-    setToDoList(clearTask)
-
-
-
+    setToDoList(clearTask);
   }
-
 
   return (
     <div className="App">
@@ -68,7 +66,11 @@ function App() {
         setDidAddTask={setDidAddTask}
         clearCompleted={clearCompleted}
       />
-      <ToDoList toDoList={toDoList} didAddTask={didAddTask} toggleTask={toggleTask} />
+      <ToDoList
+        toDoList={toDoList}
+        didAddTask={didAddTask}
+        toggleTask={toggleTask}
+      />
     </div>
   );
 }
