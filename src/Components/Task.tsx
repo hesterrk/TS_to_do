@@ -33,7 +33,6 @@ function Task({
   item_id,
   item_completed,
 }: Props) {
-  console.log(item_completed, "toggling");
 
   return (
     <div>
