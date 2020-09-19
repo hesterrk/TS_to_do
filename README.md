@@ -1,3 +1,41 @@
+### TypeScript To-Do App
+
+## About and Features
+
+This app provides the following functionality -
+
+• Add a new task to your list
+
+• Cross a task off when completed
+
+• Clear any completed tasks
+
+## NPM scripts
+
+To get this project up and running on your local:
+
+• Clone this repository
+
+• npm install --> for essential dependencies
+
+npm run server --> to start your local server
+
+## Technologies Used
+
+• React
+
+• TypeScript
+
+• Styled-Components & Styled-Icons
+
+## WishList
+
+• Enable list state persistence, so when you refresh the state of the list persists
+
+• Make it more interactive with animations
+
+### Set Up
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
