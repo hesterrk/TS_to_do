@@ -21,7 +21,6 @@ const FormDiv = styled.div`
   justify-content: center;
   align-items: center;
   padding: 0px 0px 20px 0px;
-  /* box-shadow: 0 20px 50px rgba(59, 43, 91, 0.7); */
   box-shadow: 5px 5px rgba(230, 230, 250, 0.7),
     10px 10px rgba(240, 240, 260, 0.5);
   margin-bottom: 20px;
@@ -110,4 +109,3 @@ function ToDoForm({
 
 export default ToDoForm;
 
-// @styled-icons/material/ClearAll
